@@ -84,6 +84,19 @@
   .hint kbd{border:1px solid var(--line);border-radius:5px;padding:2px 7px;font-family:var(--body);font-size:.72rem;color:var(--ink)}
 
 
+  /* target vs actual */
+  .tva-split{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(2rem,5vw,4rem);align-items:start;margin-top:2.2rem}
+  .tva-rows{display:flex;flex-direction:column;gap:1.15rem}
+  .tva-row{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:1rem;padding-bottom:1.05rem;border-bottom:1px solid var(--line)}
+  .tva-row:last-child{border-bottom:none}
+  .tva-name{font-size:1.02rem;color:var(--ink);font-weight:500}
+  .tva-target{display:block;font-size:.82rem;color:var(--muted);margin-top:.25rem;font-family:var(--mono);letter-spacing:.04em}
+  .tva-actual{font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1;
+              background:linear-gradient(90deg,var(--brand-lite),var(--brand-mid));-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+  .tva-note{margin-top:1.1rem;font-size:.86rem;color:var(--muted);line-height:1.5;max-width:34ch}
+  @media(max-width:900px){.tva-split{grid-template-columns:1fr}}
+
+
   /* ===== SEND version overrides ===== */
   .deck{scroll-snap-type:none;scroll-behavior:auto}
   .slide{height:auto;min-height:100vh;scroll-snap-align:none;padding-top:90px;padding-bottom:90px}
@@ -118,7 +131,7 @@
   /* phone */
   .phone-wrap{display:flex;justify-content:center}
   .hero-video-wrap{display:flex;justify-content:center;align-items:center}
-  .hero-video{display:block;width:min(340px,38vw);height:auto;max-height:78vh;border-radius:58px;background:#06202e;object-fit:cover;clip-path:inset(4px 3px round 55px)}
+  .hero-video{display:block;height:min(78vh,720px);width:auto;max-width:min(340px,38vw);border-radius:58px;background:#06202e;object-fit:contain;clip-path:inset(4px 3px round 55px)}
   .phone{width:270px;height:540px;border-radius:42px;background:linear-gradient(160deg,#0a3144,#04161f);border:1px solid rgba(153,229,255,.22);padding:14px;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 60px rgba(80,200,230,.1);position:relative}
   .phone::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:90px;height:6px;border-radius:6px;background:rgba(153,229,255,.25)}
   .screen{height:100%;border-radius:30px;background:radial-gradient(120% 60% at 50% 0%,rgba(80,200,230,.14),transparent 60%),#051e2b;overflow:hidden;position:relative;padding:34px 16px 16px}
@@ -143,7 +156,7 @@
   .stat .lbl{color:var(--muted);font-size:.92rem;margin-top:.6rem;line-height:1.4;max-width:18ch}
 
   /* team */
-  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:.9rem;align-items:stretch}
+  .team{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;margin-top:.9rem;align-items:stretch;max-width:900px}
   @media(max-width:820px){.team{grid-template-columns:1fr}}
   .member{padding:1.4rem 1.6rem;border:1px solid var(--line);border-radius:16px;background:var(--card)}
   .member .name{font-weight:700;font-size:1.1rem}
@@ -399,7 +412,7 @@
   @media(max-width:600px){.ii-grid{grid-template-columns:1fr}}
 
   /* consolidated traction (3-col) */
-  .trac3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(2rem,5vw,4.2rem);margin:2.6rem 0 2.4rem}
+  .trac3{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(2.5rem,6vw,5rem);margin:2.6rem 0 2.4rem;max-width:900px}
   @media(max-width:820px){.trac3{grid-template-columns:1fr;gap:1.6rem}}
   .trac-col{display:flex;flex-direction:column;gap:2.2rem}
   .trac-col-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brand-mid);font-weight:700;padding-bottom:.7rem;border-bottom:1px solid var(--line)}
@@ -508,8 +521,8 @@
     <div class="glow g1"></div>
     <div class="inner">
       <div class="eyebrow rv">The Insight</div>
-      <h2 class="rv" style="margin-bottom:.6rem">Every tool was built for the employer.<br>Or for the desperate.</h2>
-      <p class="lede rv" style="margin-top:.8rem;margin-bottom:2rem">Nobody built for the person who already has a job and wants a better one. We did, from first principles.</p>
+      <h2 class="rv" style="margin-bottom:.6rem">Who each tool in this category<br>was actually built for.</h2>
+      <p class="lede rv" style="margin-top:.8rem;margin-bottom:2rem">The person who already has a job and wants a better one has not been the customer for any of them. That is the gap we build for.</p>
       <div class="ins-grid">
         <div class="ins-card them rv"><div class="ins-name">LinkedIn</div><div class="ins-desc">A networking platform. Jobs were bolted on to sell recruiter seats.</div></div>
         <div class="ins-card them rv"><div class="ins-name">Job Boards &amp; ATS</div><div class="ins-desc">Built to sell postings and filter applicants out.</div></div>
@@ -525,7 +538,7 @@
     <div class="inner">
       <div class="eyebrow rv">The Moat</div>
       <h2 class="rv" style="margin-bottom:.6rem">LinkedIn owns identity.<br><span class="accent">Passive owns the decision layer.</span></h2>
-      <p class="lede rv" style="margin-bottom:1.6rem;max-width:56ch">The one company with the distribution to build this structurally can't. Not a gap they haven't filled. An impossibility.</p>
+      <p class="lede rv" style="margin-bottom:1.6rem;max-width:56ch">The one company with the distribution to build this has a revenue conflict that prevents it. The mechanics are below.</p>
       <div class="vs rv">
         <div class="vs-row them"><div class="k">The revenue trap</div><div class="v">Recruiting products are ~60% of LinkedIn's revenue. A candidate-side product that hides candidates cannibalizes the product that funds the company.</div></div>
         <div class="vs-row them"><div class="k">The visibility trap</div><div class="v">Their paying customers buy visibility into candidates. Our entire value is making you invisible while you decide. They can't ship it without unbuilding themselves.</div></div>
@@ -592,8 +605,8 @@
   <section class="slide">
     <div class="glow g1"></div><div class="glow g2"></div>
     <div class="inner">
-      <div class="eyebrow rv">Traction</div>
-      <h2 class="rv" style="margin-bottom:.6rem">The market is already pulling.</h2>
+      <div class="eyebrow rv">Traction · Before the beta</div>
+      <h2 class="rv" style="margin-bottom:.6rem">Where demand stood<br>before the beta.</h2>
       <div class="trac3 rv">
         <div class="trac-col">
           <div class="trac-col-label">Acquisition</div>
@@ -605,16 +618,29 @@
           <div class="trac-metric"><div class="trac-num">10&#215;</div><div class="trac-lbl">oversubscribed beta</div></div>
           <div class="trac-metric"><div class="trac-num">15 min</div><div class="trac-lbl">to fill from the waitlist</div></div>
         </div>
-        <div class="trac-col">
-          <div class="trac-col-label">Engagement</div>
-          <div class="ret-curve">
-            <svg viewBox="0 0 260 145" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Retention curve: D1 73%, D7 62%, D30 38%">
+              </div>
+      <div class="trac-foot rv"><span class="trac-foot-lbl">Signed ATS partnership</span> Greenhouse. Applications land natively in employer workflows.</div>
+    </div>
+  </section>
+
+  <!-- 7b COHORT 1 RESULTS -->
+  <section class="slide">
+    <div class="glow g1"></div><div class="glow g2"></div>
+    <div class="inner">
+      <div class="eyebrow rv">Traction &#183; Cohort 1</div>
+      <h2 class="rv" style="margin-bottom:.5rem">The targets we set,<br>and what happened.</h2>
+      <p class="lede rv" style="margin-top:.6rem;max-width:60ch">Targets were written before the cohort opened. Cohort 1 ran on the pre-card-stack build, invited from the waitlist.</p>
+      <div class="tva-split rv">
+        <div>
+          <div class="trac-col-label">Retention</div>
+          <div class="ret-curve" style="margin-top:1.1rem">
+            <svg viewBox="0 0 260 145" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cohort 1 retention: D1 73%, D7 62%, D30 38%">
               <defs>
-                <linearGradient id="rcstroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#99E5FF"/><stop offset="1" stop-color="#50C8E6"/></linearGradient>
-                <linearGradient id="rcfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#50C8E6" stop-opacity=".32"/><stop offset="1" stop-color="#50C8E6" stop-opacity="0"/></linearGradient>
+                <linearGradient id="rc2stroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#99E5FF"/><stop offset="1" stop-color="#50C8E6"/></linearGradient>
+                <linearGradient id="rc2fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#50C8E6" stop-opacity=".32"/><stop offset="1" stop-color="#50C8E6" stop-opacity="0"/></linearGradient>
               </defs>
-              <path d="M30,33 L130,45 L230,72 L230,115 L30,115 Z" fill="url(#rcfill)"/>
-              <path d="M30,33 L130,45 L230,72" fill="none" stroke="url(#rcstroke)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M30,33 L130,45 L230,72 L230,115 L30,115 Z" fill="url(#rc2fill)"/>
+              <path d="M30,33 L130,45 L230,72" fill="none" stroke="url(#rc2stroke)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               <circle cx="30" cy="33" r="4.5" fill="#99E5FF"/>
               <circle cx="130" cy="45" r="4.5" fill="#99E5FF"/>
               <circle cx="230" cy="72" r="4.5" fill="#99E5FF"/>
@@ -626,11 +652,27 @@
               <text x="230" y="134" fill="#8fb4c6" font-size="11.5" text-anchor="middle" letter-spacing="1">D30</text>
             </svg>
           </div>
-          <div class="ret-note">D7 holds at 62%, well above the 20&#8211;25% consumer benchmark.</div>
+          <div class="tva-note">Targets were 35% at day 1 and 20% at day 7. Consumer benchmark for day 7 sits at 20&#8211;25%.</div>
+        </div>
+        <div>
+          <div class="trac-col-label">Engagement, against target</div>
+          <div class="tva-rows" style="margin-top:1.1rem">
+            <div class="tva-row">
+              <div><span class="tva-name">Weekly active users</span><span class="tva-target">TARGET 25&#8211;30% OF USERS</span></div>
+              <div class="tva-actual">52%</div>
+            </div>
+            <div class="tva-row">
+              <div><span class="tva-name">Resume tailoring in flow</span><span class="tva-target">TARGET 30&#8211;40% OF USERS</span></div>
+              <div class="tva-actual">45.6%</div>
+            </div>
+            <div class="tva-row">
+              <div><span class="tva-name">Session length</span><span class="tva-target">TARGET 3&#8211;5 MIN</span></div>
+              <div class="tva-actual">5&#8211;7 min</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="trac-foot rv"><span class="trac-foot-lbl">First accepted offer</span> A beta user accepted a new role in week 3 &#183; 28 April.</div>
-      <div class="trac-foot rv"><span class="trac-foot-lbl">Signed ATS partnership</span> Greenhouse. Applications land natively in employer workflows.</div>
+      <div class="trac-foot rv" style="margin-top:2rem"><span class="trac-foot-lbl">What we did next</span> Rather than open the doors, we rebuilt browse into the card stack and normalised both sides of the match on our own taxonomy. Supply grew to 3,000+ companies and +350% job volume, and relevance held.</div>
     </div>
   </section>
 
@@ -656,7 +698,7 @@
     <div class="glow g2"></div>
     <div class="inner">
       <div class="eyebrow rv">The Market</div>
-      <h2 class="rv" style="margin-bottom:.2rem">We're <span style="color:var(--brand-lite)">creating a category</span>,<br>not competing for share.</h2>
+      <h2 class="rv" style="margin-bottom:.2rem">The market,<br><span style="color:var(--brand-lite)">and how we sized it</span>.</h2>
 
       <div class="mkt-split rv">
         <svg class="mkt-rings" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Area-true rings: 101.9 million total, 43.4 million serviceable, 27 million US beachhead">
@@ -706,7 +748,7 @@
         </div>
       </div>
 
-      <p class="market-punch rv" style="margin-top:1.5rem;padding-top:1.2rem"><span class="accent">Two percent of the beachhead is a $123M business.</span></p>
+      <p class="market-punch rv" style="margin-top:1.5rem;padding-top:1.2rem"><span class="accent">Two percent of the beachhead would be a $123M business.</span></p>
       <div class="market-sources rv" style="margin-top:1rem">Rings drawn to true area. Sources · BLS · US Census · LinkedIn Premium conversion benchmark</div>
     </div>
   </section>
@@ -716,7 +758,7 @@
     <div class="glow g1"></div>
     <div class="inner">
       <div class="eyebrow rv">Business Model</div>
-      <h2 class="rv" style="margin-bottom:.4rem">Consumer subscription,<br>built on habit.</h2>
+      <h2 class="rv" style="margin-bottom:.4rem">How we make money.</h2>
       <p class="lede rv" style="margin-bottom:1.4rem">Free to discover. We earn the upgrade by being useful every week, not once every few years.</p>
       <div class="bm-label rv"><span class="bm-tag now">Now</span> Consumer · B2C</div>
       <div class="tiers">
@@ -741,12 +783,11 @@
     <div class="glow g2"></div>
     <div class="inner">
       <div class="eyebrow rv">Team</div>
-      <h2 class="rv" style="margin-bottom:.5rem">Built in Zagreb. Out to be<br>Croatia's next unicorn.</h2>
+      <h2 class="rv" style="margin-bottom:.5rem">Two founders who have<br>each built this before.</h2>
       <p class="lede rv" style="margin-top:.6rem;margin-bottom:1.4rem">One founder knows what gets people hired. The other builds systems that learn what people want. That's the product.</p>
       <div class="team">
         <div class="member rv"><div class="name">Michael Wenning</div><div class="role">Co-Founder &amp; CEO</div><div class="bio">15 years in recruiting and staffing. Founded Hire Metrics and Wenn AI. Based in Zagreb, Croatia.</div></div>
         <div class="member rv"><div class="name">Josh Jordan</div><div class="role">Co-Founder &amp; CTO</div><div class="bio">Built personalization for Amazon Alexa. Owns the engine that makes the card-stack feel personal.</div></div>
-        <div class="member rv"><div class="name">Ana Bolčević</div><div class="role">Head of Design</div><div class="bio">Shapes the card-stack experience candidates actually want to open. Based in Zagreb, Croatia.</div></div>
       </div>
       <div class="footer-line rv">Advisors &middot; William Tincup and Ryan Leary, WRKdefined Media Group</div>
     </div>
@@ -757,17 +798,18 @@
     <div class="glow g1"></div><div class="glow g2"></div>
     <div class="inner">
       <div class="eyebrow rv">The Raise</div>
-      <h2 class="rv">The channel is proven.<br>This proves the funnel.</h2>
+      <h2 class="rv">We know what a user costs.<br>This round proves what one is worth.</h2>
+      <p class="lede rv" style="margin-top:.9rem;max-width:52ch">Twelve months: 10,000 active users, and the first cohort that pays.</p>
       <div class="ask-figure rv">
         <span class="amt" style="font-size:clamp(2.4rem,5vw,3.6rem)">Now raising</span>
         <span class="terms">terms shared in conversation</span>
       </div>
       <div class="use">
         <div class="use-card rv"><div class="h">Product <span style="font-weight:500;color:var(--muted);font-size:.85em">&middot; 50%</span></div><div class="d">Improve match relevance, sharpen the taxonomy engine, and advance our machine learning.</div></div>
-        <div class="use-card rv"><div class="h">Growth <span style="font-weight:500;color:var(--muted);font-size:.85em">&middot; 30%</span></div><div class="d">Scale acquisition while CAC stays under a dollar.</div></div>
-        <div class="use-card rv"><div class="h">Retention <span style="font-weight:500;color:var(--muted);font-size:.85em">&middot; 20%</span></div><div class="d">Convert beta love into durable weekly active retention.</div></div>
+        <div class="use-card rv"><div class="h">Growth <span style="font-weight:500;color:var(--muted);font-size:.85em">&middot; 25%</span></div><div class="d">Scale acquisition while CAC stays under a dollar.</div></div>
+        <div class="use-card rv"><div class="h">Retention <span style="font-weight:500;color:var(--muted);font-size:.85em">&middot; 25%</span></div><div class="d">Convert beta love into durable weekly active retention, and prove the first paid cohort.</div></div>
       </div>
-      <div class="northstar rv"><span class="ns-label">North Star</span><span class="ns-goal">Reach 10,000 active users by seed</span></div>
+      
     </div>
   </section>
 
@@ -792,7 +834,7 @@
           <div class="vexit-row"><span class="vexit-name">Indeed → Recruit Holdings</span><span class="vexit-val">~$1B+ · 2012</span></div>
         </div>
       </div>
-      <p class="vision-punch rv">The category exits in billions. <span class="accent">We’re building the dataset the category prices in.</span></p>
+      <p class="vision-punch rv">Comparable outcomes in this category have been measured in billions. <span class="accent">The dataset compounds with every interaction.</span></p>
       <div class="sign rv"><b>Michael Wenning</b> · Co-Founder &amp; CEO &nbsp;·&nbsp; Let's build the candidate's side of work.</div>
     </div>
   </section>
